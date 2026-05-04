@@ -1,11 +1,13 @@
 img{
-    width: 80px;
+    margin-left: 10px;
+    width: 150px;
     height: 50px;
+    border: solid orange 4px;
 }
 .box2{
     padding: 10px;
     margin-top: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 2px;
 }
 .box{
     width:200px;
@@ -13,11 +15,12 @@ img{
     padding: 10px;
     margin: 2px 10px 10px 10px;
     border: solid brown;
+    background-color: lightyellow;
 }
 .box3{
     overflow: scroll;
     margin: 5px 10px 10px 10px;
-    border: dash orange;
+    border: dashed orange 4px;
     width: 150px;
     height: 110px;
 }
