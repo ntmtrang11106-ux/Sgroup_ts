@@ -1,0 +1,30 @@
+.box{
+    margin:50px;
+}
+.box2{
+    font-size: 6px;
+}
+.box3{
+    text-decoration: underline;
+    color: lightblue;
+}
+img{
+    width: 30px;
+    height:20px;
+}
+.hop-cha {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột bằng nhau */
+  gap: 10px; /* Khoảng cách giữa các ô nhỏ */
+  padding: 10px;
+}
+
+/* Style cho các ô nhỏ bên trong */
+.hop-con {
+  aspect-ratio: 1 / 1; /* Mẹo cực hay: Ép chiều cao luôn bằng chiều rộng để tạo hình vuông tuyệt đối */
+  
+  /* Căn giữa chữ bên trong ô vuông */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2
