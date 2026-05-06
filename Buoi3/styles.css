@@ -1,0 +1,62 @@
+
+.hihi {
+  font-family: "Cause", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: 45px;
+}
+.header{
+    font-size: 20px;
+    margin: 45px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;;
+}
+.headercon1{
+    justify-content: flex-start;
+
+}
+.headercon2{
+    justify-content: flex-end;
+}
+.picheader{
+    width: 20px;
+    height: 20px;
+}
+.red{
+    margin-bottom: 10px;
+    font-size: 50px;
+    color: red;
+    font-weight: 900;
+}
+.black{
+    margin-top: 1px;
+    font-size: 20px;
+}
+.introduce{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.tieude{
+    font-size: 30px;
+    border-bottom: solid 5px red;
+}
+.noidung{
+    font-size: 20px;
+}
+button{
+    color: red;
+    font-size: 20px;
+    border: solid 3px red;
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+}
+.thanhphan{
+    margin: 5px 5px;
+    padding: 13px;
+    border-radius: 17px;
+    border: solid 1px gray;
+}
