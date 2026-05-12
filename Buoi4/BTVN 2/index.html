@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    <STyle>
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .background{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            width: 500px;
+            height: 300px;
+            background-image: url('pexels-photo-635279.jpeg');
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        } 
+        .background::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        .tieude1{
+            font-weight: 100;
+            color: white;
+            font-size: 40px;
+            z-index: 2;
+        }
+        .tieude2{
+            font-weight: 900;
+            color: white;
+            font-size: 40px;
+            z-index: 2;
+        }
+        .background:hover .tieude1{
+            z-index: 0;
+            transform: scale(0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .background:hover .tieude2{
+            z-index: 0;
+            transform: scale(0.5);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .background:hover .hinhthoi{
+            transform: translate(-50%, -50%) rotate(45deg) scale(3);
+            opacity: 1;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .hidden {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: row;      
+            flex-wrap: wrap;         
+            gap: 50px;
+            width: 200px;             
+            justify-content: center;
+            align-content: center;
+            transition: gap 0.5s ease;
+            opacity: 0;
+        }
+        .hinhthoi{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: solid white 1px;
+            width: 50px;
+            height: 50px;
+            transform: rotate(45deg) translate(-50%, -50%);
+            opacity: 0;
+        }
+        img{
+            z-index: 3;
+        }
+        .background:hover .hidden {
+            gap: 5px;    
+            opacity: 1;
+            transition: gap 0.5s ease, opacity 0.5s ease;   
+            width: 100px;                 
+        }        
+        i{
+            flex: 0 0 40px; 
+            color: white;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            opacity: 1; /* Ẩn icon lúc đầu */
+            transform: scale(0.5);
+            transition: all 0.5s ease;
+
+        }
+
+    </STyle>
+</head>
+<body>
+    <div class = "background">
+        <div class = "tieude1">TENDER</div>
+        <div class = "tieude2">HERA</div>
+        <div class = "hinhthoi"></div>
+        <div class = "hidden">
+            <i class="fa-solid fa-file-code"></i>
+            <i class="fa-regular fa-file-code"></i>
+            <i class="fa-regular fa-file-image"></i>
+            <i class="fa-regular fa-file-word"></i>
+        </div>
+    </div>
+</body>
+</html>
