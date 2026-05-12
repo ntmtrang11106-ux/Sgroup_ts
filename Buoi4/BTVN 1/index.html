@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Helvetica;
+            }
+        .background{
+            position: absolute;
+            top: 50%;
+            left: 50%;  
+            transform: translate(-50%, -50%);
+            height:300px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        .background:hover .noidung{
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+        .background:hover .tieude{
+            transform: translateY(-30px);
+            transition: 0.5s;
+            color: darksalmon;
+        }
+        .tieude{
+            position: relative;
+            display: flex;
+            z-index: 1;
+            font-size: 35px;
+            color: white;
+            gap:4px;
+        }
+        .tieude2{
+            font-weight: bolder;
+        }
+        .tieude1{
+            font-weight: lighter;
+        }
+        .noidung{
+            color: white;
+            opacity: 0;
+            display: flex;
+            position: absolute;
+            top: 80%;
+            flex-direction: column;
+            gap: 5px;
+            justify-self: center;
+            align-items: center;
+        }
+        .background::before{
+            content: "";
+            background: linear-gradient(to bottom, transparent, rgb(108, 108, 130));
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+        .background:hover::before{
+            opacity: 0.6;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+<div class = "background">
+    <div class = "tieude">
+        <div class = "tieude1">Holly</div>
+        <div class = "tieude2">Sadie</div>
+    </div>
+    <img src="Soothing-nature-backgrounds-2.jpg" alt="Nature">
+    <div class = "noidung">
+        <div>SADIE NEVER TOOK HER EYE OFF ME.</div>
+        <div>SHE HAD A DARK SOUL</div>
+    </div>
+    
+
+</div>   
+</body>
+</html>
