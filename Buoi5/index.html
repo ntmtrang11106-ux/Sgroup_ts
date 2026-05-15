@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Transform + Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f1a;
+      color: white;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      align-items: center;
+    }
+
+    h2 {
+      text-align: center;
+      color: #a78bfa;
+      margin-bottom: 20px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    section { width: 100%; max-width: 800px; }
+
+    /* ===== TRANSFORM DEMO ===== */
+    .transform-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: #7c3aed;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+
+    .box-translate:hover { transform: translateX(30px); }
+    .box-rotate:hover    { transform: rotate(45deg); }
+    .box-scale:hover     { transform: scale(1.3); }
+    .box-combine:hover   { transform: translateY(-20px) rotate(15deg) scale(1.1); }
+
+    /* ===== OVERLAY DEMO ===== */
+    .card-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      position: relative;
+      width: 180px;
+      height: 220px;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .card:hover img { transform: scale(1.1); }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(124,58,237,0.9) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card:hover .card-overlay { opacity: 1; }
+
+    /* ===== ANIMATION DEMO ===== */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-30px); }
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.2); opacity: 0.6; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-100px); opacity: 0; }
+      to   { transform: translateX(0);      opacity: 1; }
+    }
+
+    .anim-grid {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .anim-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: white;
+      font-weight: 600;
+    }
+
+    .anim-bounce { background: #ef4444; animation: bounce 1s ease-in-out infinite; }
+    .anim-spin   { background: #f59e0b; animation: spin 2s linear infinite; }
+    .anim-pulse  { background: #10b981; animation: pulse 1.5s ease-in-out infinite; }
+    .anim-slide  { background: #3b82f6; animation: slideIn 1s ease forwards; }
+
+    /* ===== CSS LOADER ===== */
+    .loader-wrap {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Loader 1: Spinner */
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top-color: #a78bfa;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* Loader 2: Dots */
+    .loader-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .loader-dots span {
+      width: 12px;
+      height: 12px;
+      background: #a78bfa;
+      border-radius: 50%;
+      animation: bounce 0.8s ease-in-out infinite;
+    }
+
+    .loader-dots span:nth-child(2) { animation-delay: 0.15s; }
+    .loader-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+    /* Loader 3: Bar */
+    @keyframes bar {
+      0%, 100% { transform: scaleY(0.4); }
+      50%       { transform: scaleY(1.2); }
+    }
+
+    .loader-bar {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      height: 40px;
+    }
+
+    .loader-bar span {
+      width: 6px;
+      height: 30px;
+      background: #a78bfa;
+      border-radius: 3px;
+      animation: bar 0.9s ease-in-out infinite;
+    }
+
+    .loader-bar span:nth-child(2) { animation-delay: 0.1s; background: #c4b5fd; }
+    .loader-bar span:nth-child(3) { animation-delay: 0.2s; }
+    .loader-bar span:nth-child(4) { animation-delay: 0.3s; background: #c4b5fd; }
+    .loader-bar span:nth-child(5) { animation-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+  <!-- TRANSFORM -->
+  <section>
+    <h2>🔷 Transform – Hover vào từng ô</h2>
+    <div class="transform-grid">
+      <div class="box box-translate">translate</div>
+      <div class="box box-rotate">rotate</div>
+      <div class="box box-scale">scale</div>
+      <div class="box box-combine">combine</div>
+    </div>
+  </section>
+
+  <!-- OVERLAY -->
+  <section>
+    <h2>🖼️ Overlay Effect – Hover vào card</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="https://picsum.photos/seed/a/180/220" alt="">
+        <div class="card-overlay">Xem thêm →</div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/b/180/220" alt="">
+        <div class="card-overlay">Chi tiết →</div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/c/180/220" alt="">
+        <div class="card-overlay">Khám phá →</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANIMATION -->
+  <section>
+    <h2>✨ @keyframes Animation</h2>
+    <div class="anim-grid">
+      <div class="anim-box anim-bounce">bounce</div>
+      <div class="anim-box anim-spin">spin</div>
+      <div class="anim-box anim-pulse">pulse</div>
+      <div class="anim-box anim-slide">slideIn</div>
+    </div>
+  </section>
+
+  <!-- CSS LOADERS -->
+  <section>
+    <h2>⏳ CSS Loaders (pure CSS)</h2>
+    <div class="loader-wrap">
+      <div class="loader-spinner"></div>
+      <div class="loader-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="loader-bar">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
